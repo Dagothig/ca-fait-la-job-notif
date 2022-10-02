@@ -1,17 +1,19 @@
 #!/bin/bash
 
 last=$(
-  ssh dagothig@165.227.34.49 tail -n 10 "irclogs/liberachat/#diroum.log" \
-  | grep -o "<.*>" \
+  ssh dagothig@165.227.34.49 grep -o "<.*>" "irclogs/liberachat/#diroum.log" \
+  | tail -n 5 \
   | tac)
 ircnotif=$(readlink -f "$0")
 dir=$(dirname $ircnotif)
 ircanswer="$dir/ircanswer.sh"
+title=$(echo $last | head -n 1)
+content=$(echo $last | tail -n 4)
 
 termux-notification \
   -i ircnotif \
-  -t "`head -n 1 $last`" \
-  -c "`tail -n 4 $last`" \
+  -t "$title" \
+  -c "$content" \
   --alert-once \
   --ongoing \
   --button1 Répondre \
