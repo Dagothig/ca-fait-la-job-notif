@@ -1,7 +1,7 @@
 #!/bin/bash
 
 last=$(
-  ssh dagothig@165.227.34.49 tail -n 20 cadeau-\#diroum.log \
+  ssh $1 tail -n 20 $2 \
   | grep "<.*>" \
   | tail -n 5 \
   | tac)
@@ -18,6 +18,6 @@ termux-notification \
   --alert-once \
   --ongoing \
   --button1 Répondre \
-  --button1-action "sh $ircanswer \"\$REPLY\" && sh $ircnotif" \
+  --button1-action "sh $ircanswer $1 \"\$REPLY\" && sh $ircnotif $1 $2" \
   --button2 Rafraîchir \
   --button2-action "sh $ircnotif"
