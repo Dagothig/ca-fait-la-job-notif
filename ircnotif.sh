@@ -1,7 +1,7 @@
 #!/bin/bash
 
 last=$(
-  ssh dagothig@165.227.34.49 grep -o "<.*>" "irclogs/liberachat/#diroum.log" \
+  ssh dagothig@165.227.34.49 grep -o "<\.\*>" "irclogs/liberachat/#diroum.log" \
   | tail -n 5 \
   | tac)
 ircnotif=$(readlink -f "$0")
