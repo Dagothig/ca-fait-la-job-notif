@@ -10,8 +10,8 @@ ircanswer="$dir/ircanswer.sh"
 
 termux-notification \
   -i ircnotif \
-  -t head -n 1 $last \
-  -c tail -n 4 $last \
+  -t "`head -n 1 $last`" \
+  -c "`tail -n 4 $last`" \
   --alert-once \
   --ongoing \
   --button1 Répondre \
