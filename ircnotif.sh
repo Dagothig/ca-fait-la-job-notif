@@ -11,6 +11,9 @@ ircanswer="$dir/ircanswer.sh"
 title=$(echo "$last" | head -n 1)
 content=$(echo "$last" | tail -n 4)
 
+echo $ircnotif
+echo $ircanswer
+
 termux-notification \
   -i ircnotif \
   -t "$title" \
