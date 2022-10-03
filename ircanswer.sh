@@ -1,4 +1,5 @@
-keys=$(echo "$3" | sed 's:":\\":g')
-ssh $1 tmux send-keys -l "\"/msg $2 $keys\"" &&
-    ssh $1 tmux send-keys Enter ||
+keys=$(echo "$4" | sed 's:":\\":g')
+ssh $2 tmux send-keys -l "\"/msg $3 $keys\"" &&
+    ssh $2 tmux send-keys Enter ||
     termux-toast "AAAAAAAAAAAAA"
+sh $1
