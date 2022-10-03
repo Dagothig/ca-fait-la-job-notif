@@ -21,6 +21,6 @@ termux-notification \
   --alert-once \
   --ongoing \
   --button1 Répondre \
-  --button1-action "termux-toast AAA ; sh $ircnotif $1 $2" \
+  --button1-action "termux-toast \$REPLY ; sh $ircnotif $1 $2" \
   --button2 Rafraîchir \
   --button2-action "sh $ircnotif $1 $2"
