@@ -10,9 +10,6 @@ dir=$(dirname $ircnotif)
 ircanswer="$dir/ircanswer.sh"
 title=$(echo "$last" | head -n 1)
 
-echo $ircnotif
-echo $ircanswer
-
 termux-notification \
   -i ircnotif \
   -t "$title" \
