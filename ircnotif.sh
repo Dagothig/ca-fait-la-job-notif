@@ -21,6 +21,6 @@ termux-notification \
   --alert-once \
   --ongoing \
   --button1 Répondre \
-  --button1-action "sh $ircanswer $ircnotif $connection $chann \$REPLY" \
+  --button1-action "sh '$ircanswer' '$ircnotif' '$connection' '$chann' \$REPLY" \
   --button2 Rafraîchir \
   --button2-action "sh $ircnotif"
