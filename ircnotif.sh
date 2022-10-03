@@ -3,13 +3,11 @@
 last=$(
   ssh $1 tail -n 20 $2 \
   | grep "<.*>" \
-  | tail -n 5 \
-  | tac)
+  | tail -n 10)
 ircnotif=$(readlink -f "$0")
 dir=$(dirname $ircnotif)
 ircanswer="$dir/ircanswer.sh"
 title=$(echo "$last" | head -n 1)
-content=$(echo "$last" | tail -n 4)
 
 echo $ircnotif
 echo $ircanswer
@@ -17,7 +15,7 @@ echo $ircanswer
 termux-notification \
   -i ircnotif \
   -t "$title" \
-  -c "$content" \
+  -c "$last" \
   --alert-once \
   --ongoing \
   --button1 Répondre \
