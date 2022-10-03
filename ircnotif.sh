@@ -3,7 +3,8 @@
 last=$(
   ssh $1 tail -n 20 $2 \
   | grep "<.*>" \
-  | tail -n 10)
+  | tail -n 5 \
+  | tac)
 ircnotif=$(readlink -f "$0")
 dir=$(dirname $ircnotif)
 ircanswer="$dir/ircanswer.sh"
