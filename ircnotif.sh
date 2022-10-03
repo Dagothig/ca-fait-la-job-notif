@@ -21,6 +21,6 @@ termux-notification \
   --alert-once \
   --ongoing \
   --button1 Répondre \
-  --button1-action "ssh $1 tmux send-keys -l '\$REPLY' ; sh $ircnotif $1 $2" \
+  --button1-action "ssh $1 tmux send-keys -l \"\$REPLY\" ; sh $ircnotif $1 $2" \
   --button2 Rafraîchir \
   --button2-action "sh $ircnotif $1 $2"
