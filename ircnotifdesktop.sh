@@ -29,7 +29,7 @@ if [ -n "$TAGS" ]; then
                 match=$(echo "$onlynew" | grep "$tag")
             fi
             if [ -n "$match" ]; then
-                mplayer "$dir/$tag.mp3" &
+                nohup play "$dir/$tag.mp3" &
                 break 2
             fi
         done
