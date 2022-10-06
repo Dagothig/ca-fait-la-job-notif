@@ -12,6 +12,8 @@ Exemple de `.env`:
 CONNECTION=user@remote
 LOG=path/to/#channel.log
 CHANN=#channel
+NICK=user
+TAGS=victwere,aaa,nick
 ```
 
 Et finalement vous ajoutez un cronjob avec la fréquence désiré:
@@ -34,6 +36,14 @@ pkg install cronie
 pkg install openssh
 pkg install git
 ```
+
+## Oui mais les fuckings sons?
+
+C'est l'entrée TAGS, vous pouvez l'omettre si vous n'avez pas de plézire, ou juste mettre "TAGS=nick" pour seulement se faire avertir quand quelqu'un vous tag.
+
+## Oui mais c'est possible de rater des notifs vu que c'est pas continu et ça regarde juste les quelques derniers messages?
+
+Pas mon problème.
 
 ## Oui mais irssi-dans-tmux ?
 
