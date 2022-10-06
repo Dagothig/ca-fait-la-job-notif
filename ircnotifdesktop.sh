@@ -7,7 +7,6 @@ source $dir/.env
 new=$(
   ssh $CONNECTION tail -n 10 $LOG \
   | grep "<.*>" \
-  | tail -n 5 \
   | tac)
 title=$(echo "$new" | head -n 1)
 

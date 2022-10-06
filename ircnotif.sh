@@ -7,7 +7,6 @@ source $dir/.env
 new=$(
   ssh $CONNECTION tail -n 10 $LOG \
   | grep "<.*>" \
-  | tail -n 5 \
   | tac)
 title=$(echo "$new" | head -n 1)
 
@@ -35,7 +34,7 @@ if [ -n "$TAGS" ]; then
       if [ "$tag" == "nick" ]; then
         match=$(echo "$onlynew" | grep "^+..:.. <.*> $NICK:")
       else
-        match=$(echo "$onlynew" | grep "$tag")
+        match=$(echo "$onlynew" | grep -i "$tag")
       fi
       if [ -n "$match" ]; then
         nohup play "$dir/$tag.mp3" &
