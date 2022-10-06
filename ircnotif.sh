@@ -23,6 +23,7 @@ termux-notification \
   --button2-action "sh $ircnotif"
 
 if [ -n "$TAGS" ]; then
+  touch $dir/last.txt
   echo "$new" > $dir/new.txt
 
   onlynew=$(

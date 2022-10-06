@@ -12,28 +12,29 @@ new=$(
 title=$(echo "$new" | head -n 1)
 
 notify-send "$title" "$new" \
-    -r 1337
+  -r 1337
 
 if [ -n "$TAGS" ]; then
-    echo "$new" > $dir/new.txt
+  touch $dir/last.txt
+  echo "$new" > $dir/new.txt
 
-    onlynew=$(
-        git diff --no-index $dir/last.txt $dir/new.txt |
-        grep "^+..:..")
+  onlynew=$(
+    git diff --no-index $dir/last.txt $dir/new.txt |
+    grep "^+..:..")
 
-    if [ -n "$onlynew" ]; then
-        echo "$TAGS" | sed "s/,/\n/g" | while read tag; do
-            if [ "$tag" == "nick" ]; then
-                match=$(echo "$onlynew" | grep "^+..:.. <.*> $NICK:")
-            else
-                match=$(echo "$onlynew" | grep "$tag")
-            fi
-            if [ -n "$match" ]; then
-                nohup play "$dir/$tag.mp3" &
-                break 2
-            fi
-        done
-    fi
+  if [ -n "$onlynew" ]; then
+    echo "$TAGS" | sed "s/,/\n/g" | while read tag; do
+      if [ "$tag" == "nick" ]; then
+        match=$(echo "$onlynew" | grep "^+..:.. <.*> $NICK:")
+      else
+        match=$(echo "$onlynew" | grep "$tag")
+      fi
+      if [ -n "$match" ]; then
+        nohup play "$dir/$tag.mp3" &
+        break 2
+      fi
+    done
+  fi
 
-    mv -f $dir/new.txt $dir/last.txt
+  mv -f $dir/new.txt $dir/last.txt
 fi
