@@ -17,9 +17,9 @@ termux-notification \
   --alert-once \
   --ongoing \
   --button1 Répondre \
-  --button1-action "sh '$ircanswer' '$ircnotif' '$CONNECTION' '$CHANN' \$REPLY" \
+  --button1-action "bash '$ircanswer' '$ircnotif' '$CONNECTION' '$CHANN' \$REPLY" \
   --button2 Rafraîchir \
-  --button2-action "sh $ircnotif"
+  --button2-action "bash $ircnotif"
 
 if [ -n "$TAGS" ]; then
   touch $dir/last.txt
