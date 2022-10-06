@@ -31,7 +31,7 @@ Une fois F-Droid installé, vous pouvez trouver [Termux](https://f-droid.org/en/
 
 Et une fois Termux installé, dans Termux vous allez aussi avoir besoin de [Termux-services](https://wiki.termux.com/wiki/Termux-services), de `cronie`, de `ssh`, et potentiellement de `git` (selon comment vous voulez télécharger les scripts ci-présents, par `wget` c'est probablement plus simple):
 ```
-pkg install termux-services cronie openssh git sox
+pkg install termux-services cronie openssh git play-audio
 ```
 
 ## Oui mais les fuckings sons?
